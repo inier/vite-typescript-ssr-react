@@ -2,6 +2,7 @@
   "name": "vite-typescript-ssr-react",
   "version": "1.0.0",
   "description": "Boilerplate for a modern web stack",
+  "homepage": "https://inier.github.io/vite-typescript-ssr-react/",
   "repository": {
     "type": "git",
     "url": "https://github.com/jonluca/vite-typescript-ssr-react"
