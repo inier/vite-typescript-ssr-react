@@ -12,6 +12,7 @@ pids
 logs
 results
 tmp
+.history
 
 # Build
 public/css/main.css

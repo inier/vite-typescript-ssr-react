@@ -9,7 +9,7 @@
   "author": "JonLuca DeCaro",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --watch server.ts --watch src/server --exec 'yarn ts-node server.ts'",
+    "dev": "nodemon --watch server.ts --watch src/server --exec yarn ts-node server.ts",
     "build": "tsc -p tsconfig.prod.json && yarn build:client && yarn build:server && yarn copy-files",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/client/entry-server.tsx --outDir dist/server",
