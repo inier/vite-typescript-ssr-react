@@ -723,4 +723,6 @@ body {
 	}
 }
 `;
-ReactDOM.hydrate(/* @__PURE__ */ React.createElement(React.StrictMode, null, /* @__PURE__ */ React.createElement(BrowserRouter, null, /* @__PURE__ */ React.createElement(App, null))), document.getElementById("app"));
+ReactDOM.hydrate(/* @__PURE__ */ React.createElement(React.StrictMode, null, /* @__PURE__ */ React.createElement(BrowserRouter, {
+  basename: {}.PUBLIC_URL
+}, /* @__PURE__ */ React.createElement(App, null))), document.getElementById("app"));
