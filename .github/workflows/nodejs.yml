@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -18,6 +19,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 15.x
+          
       - name: Get npm cache directory
         id: npm-cache
         run: |
@@ -28,18 +30,19 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
+            
       - name: npm install, build
         run: |
           yarn install --frozen-lockfile
           yarn run build
         env:
           CI: true
-
+          
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: ./build
+          path: ./dist
 
   deploy:
     name: Deploy
@@ -52,10 +55,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: ./build
-
+          path: ./dist
+          
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./dist
